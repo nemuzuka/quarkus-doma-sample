@@ -9,16 +9,14 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 @Path("/hello-resteasy-required-args-constructor")
 @ApplicationScoped
 @Transactional
 @RequiredArgsConstructor
+@Slf4j
 public class GreetingResource_RequiredArgsConstructor {
-
-  private final Logger log = LoggerFactory.getLogger(getClass());
 
   private final FruitDao fruitDao;
 

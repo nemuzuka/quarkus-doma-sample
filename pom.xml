@@ -19,6 +19,7 @@
     <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
     <quarkus-doma.version>0.0.4</quarkus-doma.version>
     <doma.version>2.46.1</doma.version>
+    <lombok.version>1.18.20</lombok.version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -65,7 +66,7 @@
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>1.18.20</version>
+      <version>${lombok.version}</version>
       <scope>provided</scope>
     </dependency>
 
@@ -116,6 +117,11 @@
               <groupId>org.seasar.doma</groupId>
               <artifactId>doma-processor</artifactId>
               <version>${doma.version}</version>
+            </path>
+            <path>
+              <groupId>org.projectlombok</groupId>
+              <artifactId>lombok</artifactId>
+              <version>${lombok.version}</version>
             </path>
           </annotationProcessorPaths>
         </configuration>
