@@ -1,6 +1,7 @@
 package net.jp.vss;
 
 import java.util.UUID;
+import java.util.stream.Collectors;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
@@ -24,7 +25,8 @@ public class GreetingResource {
   @Produces(MediaType.TEXT_PLAIN)
   public String hello() {
     log.info("create fruit: {}", fruitDao.insert(new Fruit(UUID.randomUUID().toString(), "なまえ")));
-    log.info("fruits: {}", fruitDao.selectAll());
+    log.info(
+        "fruits: {}", fruitDao.selectAll().stream().map(Fruit::getId).collect(Collectors.toList()));
     return "Hello RESTEasy";
   }
 }
