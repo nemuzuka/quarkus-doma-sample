@@ -5,6 +5,7 @@ import org.seasar.doma.Dao;
 import org.seasar.doma.Insert;
 import org.seasar.doma.Select;
 import org.seasar.doma.Sql;
+import org.seasar.doma.jdbc.Result;
 
 @Dao
 public interface FruitDao {
@@ -14,5 +15,5 @@ public interface FruitDao {
   List<Fruit> selectAll();
 
   @Insert
-  int insert(Fruit fruit);
+  Result<Fruit> insert(Fruit fruit);
 }

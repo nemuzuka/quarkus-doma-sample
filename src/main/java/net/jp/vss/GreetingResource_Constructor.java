@@ -2,7 +2,6 @@ package net.jp.vss;
 
 import java.util.UUID;
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -11,14 +10,18 @@ import javax.ws.rs.core.MediaType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Path("/hello-resteasy")
+@Path("/hello-resteasy-constructor")
 @ApplicationScoped
 @Transactional
-public class GreetingResource {
+public class GreetingResource_Constructor {
 
   private final Logger log = LoggerFactory.getLogger(getClass());
 
-  @Inject FruitDao fruitDao;
+  private final FruitDao fruitDao;
+
+  public GreetingResource_Constructor(FruitDao fruitDao) {
+    this.fruitDao = fruitDao;
+  }
 
   @GET
   @Produces(MediaType.TEXT_PLAIN)
